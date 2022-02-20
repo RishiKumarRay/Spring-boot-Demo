@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: elk
+  labels:
+    app: pr
+  name: pr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pr
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pr
+    spec:
+      containers:
+      - image: prom/prometheus
+        name: prometheus
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: data
+          mountPath: /etc/prometheus
+      volumes: 
+      - name: data
+        configMap:
+          name: pr-conf
+          items:
+              - key:  prometheus.yml
+                path: prometheus.yml
+
+        

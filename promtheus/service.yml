@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  namespace: elk
+  
+spec:
+  selector: 
+    app: pr
+  type: NodePort  
+  ports:
+    - port: 9090
+      targetPort: 9090
+      nodePort: 32200
