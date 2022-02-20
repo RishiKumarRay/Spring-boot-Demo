@@ -4,10 +4,10 @@ pipeline{
         label 'slave'
     }
      
-    tools {
-         jdk 'jdk'
-         maven 'Maven' 
-    }  
+//     tools {
+//          jdk 'jdk'
+//          maven 'Maven' 
+//     }  
     
     environment {
         dockerhub=credentials('dockerhub')
