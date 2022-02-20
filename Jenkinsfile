@@ -46,7 +46,7 @@ pipeline{
                 branch "Production"
                 }
             steps{
-                sh 'docker build -t Springboot:${GIT_COMMIT} .'
+                sh 'docker build -t springboot:${GIT_COMMIT} .'
             }
         } 
 
@@ -56,7 +56,7 @@ pipeline{
                 branch "Production"
                 }
             steps{
-                sh 'docker tag Springboot:${GIT_COMMIT} rishiray/springboot-app:${GIT_COMMIT}'
+                sh 'docker tag springboot:${GIT_COMMIT} rishiray/springboot-app:${GIT_COMMIT}'
                 sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
                 sh 'docker push rishiray/springboot-app:${GIT_COMMIT}'
             }
