@@ -1,3 +1,4 @@
+@Library('my-maven-library')_
 pipeline{
    agent {
         label 'slave'
