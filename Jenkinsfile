@@ -2,10 +2,10 @@
 pipeline{
    agent any
      
-    tools {
-         jdk 'jdk'
-         maven 'Maven' 
-    }  
+//     tools {
+//          jdk 'jdk'
+//          maven 'Maven' 
+//     }  
     
     environment {
         dockerhub=credentials('dockerhub')
