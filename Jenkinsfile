@@ -1,5 +1,13 @@
 pipeline{
-    agent any
+   agent {
+        label 'slave'
+    }
+     
+    tools {
+         jdk 'jdk'
+         maven 'Maven' 
+    }  
+    
     environment {
         dockerhub=credentials('dockerhub')
         
@@ -16,7 +24,7 @@ pipeline{
         {
             steps{
                 runTests()
-                )
+                
             }
         }
 
